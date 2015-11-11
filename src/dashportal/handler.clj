@@ -3,33 +3,29 @@
             [compojure.route :as route]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]
             [ring.util.response :as response]
-            [environ.core :as env])
-  (:use [hiccup.core] ring.adapter.jetty)
-  )
-
-(defn generate-head [refresh-time-seconds]
-  [:head
-   [:meta {:charset "UTF-8"}]
-   [:meta {:http-equiv "refresh" :content refresh-time-seconds}]
-   [:style {:type "text/css"}
-    "
-    body, html
-    {
-      margin: 0; padding: 0; height: 100%; overflow: hidden;
-    }
-    #content
-    {
-      position:absolute; left: 0; right: 0; bottom: 0; top: 0px;
-    }"
-    ]
-   ]
-  )
+            [environ.core :as env]
+            [hiccup.core :refer :all]
+            [ring.adapter.jetty :refer :all]))
 
 (defn generate-page [url refresh-seconds]
   (str "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">\n"
        (html
          [:html
-          (generate-head refresh-seconds)
+          [:head
+           [:meta {:charset "UTF-8"}]
+           [:meta {:http-equiv "refresh" :content refresh-seconds}]
+           [:style {:type "text/css"}
+            "
+            body, html
+            {
+              margin: 0; padding: 0; height: 100%; overflow: hidden;
+            }
+            #content
+            {
+              position:absolute; left: 0; right: 0; bottom: 0; top: 0px;
+            }"
+            ]
+           ]
           [:body
            [:iframe {:src url :width "100%" :height "100%" :frameborder 0}
             "Your browser does not support iframes."
