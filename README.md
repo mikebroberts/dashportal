@@ -30,6 +30,9 @@ default the app will run on port 3001, but you can change that by setting a `POR
 environment variable.
 * If running on Heroku just push the source to a new Heroku app - the included
 `Procfile` file should do all you need
+* If running on Amazon Elastic Beanstalk create a generic 'Single Container' docker 
+application for the application artifact run the following command, and use the 
+resulting zip file: `git archive --format=zip HEAD > dashportal.zip`
 * If you're more Clojure savvy you can compile an Uberjar or Uberwar and use that.
 
 I'd welcome feedback in Github, or on twitter @mikebroberts
