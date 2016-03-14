@@ -51,12 +51,15 @@ as part of `[site]`'s rotation set (at `/full-screen-images/[site]/[filename]`)
 * You can have the root location (`/`) serve either a dashboard, or a list of dashboards available. See
 the docs in project.clj for more. You can always see the dashboard list at `/list-dashboards`
 * You can also send 'flash' messages / pages to any (or all) dashboards, which will override the regular rotation
-for a brief period of time. To do this, POST a request to `/api/flashes` with the following parameters:
+for a brief period of time. Flash messages are great for alerts, shoutouts, etc.! To do this, POST a request
+to `/api/flashes` with the following parameters:
   * dashboards (required) - set to the dashboard name (e.g. `kittens`) or `ALL` to flash to all dashboards
   * message (required, unless you specify url) - The message to display, e.g. `Hello World!`
   * url (required, unless you specify message) - The URL to show. Must follow the usual 'framable' rules
   * seconds (optional) - how many seconds to show the flash. Maxes out at 60 seconds (unless you change the source code)
   * alert-level (optional) - `regular` or `warning` - used to change the style of the flash page. May well be extended
   in future
+
+Here's an example of a flash message: ![flash message](demo-photos/IMG_1775.jpg)
 
 I'd welcome feedback in Github, or on twitter @mikebroberts
