@@ -60,6 +60,6 @@ to `/api/flashes` with the following parameters:
   * alert-level (optional) - `regular` or `warning` - used to change the style of the flash page. May well be extended
   in future
 
-Here's an example of a flash message: ![flash message](demo-photos/IMG_1775.jpg)
+Here's an example of a flash message: ![flash message](demo-photos/flash.png)
 
 I'd welcome feedback in Github, or on twitter @mikebroberts
