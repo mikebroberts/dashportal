@@ -1,8 +1,5 @@
 FROM java:7
 
-# RUN useradd -m tcdash
-# USER tcdash
-
 COPY . /usr/src
 WORKDIR /usr/src
 EXPOSE 3000
