@@ -63,7 +63,7 @@
   (load-template "iframe-page.html" "**TITLE**" dashboard))
 
 (defn full-screen-image [board-name image-file-name]
-  (load-template "full-screen-image.html" "**IMAGE**" (str board-name "/" image-file-name)))
+  (load-template "full-screen-image.html" "**IMAGE**" (str board-name "/" (clojure.string/replace image-file-name #" " "%20"))))
 
 (defn now-in-seconds []
   (int (/ (.getTime (java.util.Date.)) 1000)))
